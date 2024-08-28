@@ -12,13 +12,16 @@ class CardList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.transparent,
       elevation: 0.8,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.w),
       ),
-      child:  const Stack(
+      child:   Stack(
         children: [
-          Image(image: AssetImage(MyAssets.test2Image)),
+          ClipRRect(
+              borderRadius: BorderRadius.circular(8.w)
+              ,child: Image(image: AssetImage(MyAssets.test2Image))),
           WatchListComponatnt()
         ],
       ),
