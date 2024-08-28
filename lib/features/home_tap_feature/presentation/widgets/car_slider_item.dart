@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/themes/my_assets.dart';
 import '../../../../core/themes/my_colors.dart';
 import '../../../../core/themes/my_styles.dart';
+import '../../../../core/widgets/watch_list_componant.dart';
 
 class CarSlider extends StatelessWidget {
   const CarSlider({
@@ -13,13 +13,14 @@ class CarSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height:289.h ,
-      width: 412.w,
+      height:290.h ,
       child: Stack(
         alignment: Alignment.center,
         children: [
 
           Card(
+
+            margin: EdgeInsets.zero,
             color: Colors.transparent,
             child: Stack(
               clipBehavior: Clip.antiAlias,
@@ -37,7 +38,7 @@ class CarSlider extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                       Container(
-                        height: 289.h,
+                        height: 291.h,
                         width: double.infinity,
                         decoration: const BoxDecoration(
                           gradient: LinearGradient(
@@ -47,7 +48,7 @@ class CarSlider extends StatelessWidget {
                             ],
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
-                            stops: [0.4, 14],
+                            stops: [0.1, 12],
                           ),
                         ),
                       ),
@@ -65,13 +66,7 @@ class CarSlider extends StatelessWidget {
                             child: const Stack(
                               children: [
                                 Image(image: AssetImage(MyAssets.test2Image),fit: BoxFit.cover,width:129 ,height:199 ,),
-                                Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Image(image: AssetImage(MyAssets.bokkMarkOffIcon)),
-                                    Icon(Icons.add,color: MyColors.whiteColor,size: 16,),
-                                  ],
-                                )
+                                WatchListComponatnt()
                               ],
                             )),
                         SizedBox(width: 14.w,),
@@ -96,3 +91,4 @@ class CarSlider extends StatelessWidget {
     );
   }
 }
+

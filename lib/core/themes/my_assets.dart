@@ -6,4 +6,5 @@ class MyAssets
   static const String testImage="assets/images/text.png";
   static const String test2Image="assets/images/test2.png";
   static const String bokkMarkOffIcon="assets/icons/Icon awesome-bookmark.png";
+  static const String starIcon="assets/icons/star-2.png";
 }

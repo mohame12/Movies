@@ -19,4 +19,20 @@ class MyStyles
     fontSize: 10.sp,
     fontFamily: 'Inter',
   );
+  static TextStyle font15WhiteInter= TextStyle(
+    color: MyColors.whiteColor,
+    fontSize: 15.sp,
+    fontFamily: 'Inter',
+  );
+
+  static TextStyle font12WhitePoppens= TextStyle(
+    color: MyColors.whiteColor,
+    fontSize: 12.sp,
+    fontFamily: 'Poppins',
+  );
+  static TextStyle font10GreyPoppens= TextStyle(
+    color: MyColors.greyColor,
+    fontSize: 10.sp,
+    fontFamily: 'Poppins',
+  );
 }
