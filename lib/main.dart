@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/routing/my_routes.dart';
+import 'package:movies_app/core/themes/my_themes.dart';
 import 'package:movies_app/features/splash_screen/presentation/pages/splash_screen.dart';
 void main ()
 {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
+        theme: MyThemes.lightTheme,
         debugShowCheckedModeBanner: false,
         initialRoute: SplashScreen.id,
         routes: MyRoute.myRoutes,
