@@ -24,16 +24,16 @@ class _SplashScreenState extends State<SplashScreen>with SingleTickerProviderSta
     timeOut();
 
   }
-  @override
-  void dispose() {
-    super.dispose();
-    animationController.dispose();
-  }
 
   void animationControl() {
     animationController=AnimationController(vsync: this,duration: const Duration(milliseconds: 600));
     slideAnimation=Tween<Offset>(end: Offset.zero,begin:const Offset(2,0) ).animate(animationController);
     animationController.forward();
+  }
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
   }
   @override
   Widget build(BuildContext context) {
