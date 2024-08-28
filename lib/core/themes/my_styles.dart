@@ -9,4 +9,14 @@ class MyStyles
     fontSize: 18.sp,
     fontFamily: 'Poppins',
   );
+  static TextStyle font14WhiteInter= TextStyle(
+    color: MyColors.whiteColor,
+    fontSize: 14.sp,
+    fontFamily: 'Inter',
+  );
+  static TextStyle font10GreyInter= TextStyle(
+    color: MyColors.greyColor,
+    fontSize: 10.sp,
+    fontFamily: 'Inter',
+  );
 }
