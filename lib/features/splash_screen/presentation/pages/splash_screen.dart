@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return const Scaffold(
       body: Column(
         children: [
-          Center(child: Text('Hello world')),
+
         ],
       ),
     );
