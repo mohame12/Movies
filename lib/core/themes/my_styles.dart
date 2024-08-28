@@ -31,7 +31,7 @@ class MyStyles
     fontFamily: 'Poppins',
   );
   static TextStyle font10GreyPoppens= TextStyle(
-    color: MyColors.recommendCardBackColor,
+    color: MyColors.greyColor,
     fontSize: 10.sp,
     fontFamily: 'Poppins',
   );
