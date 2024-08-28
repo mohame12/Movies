@@ -1,51 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:line_icons/line_icons.dart';
-import 'package:movies_app/core/themes/my_colors.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/features/home_features/presentation/manager/nav_cubit/nav_cubit.dart';
+import 'package:movies_app/features/home_features/presentation/manager/nav_cubit/nav_state.dart';
+import 'package:movies_app/features/home_features/presentation/widgets/g_nav_bar.dart';
 
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-  static const String id="HomeScreen";
 
+  static const String id = "HomeScreen";
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      bottomNavigationBar:Padding(
-        padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w, vertical: 10.h),
-        child: GNav(
-            tabBorderRadius: 15,
-            tabActiveBorder: Border.all(color: const Color(0xff232023), width: 1), // tab button border
-            curve: Curves.easeInExpo, // tab animation curves
-            duration: const Duration(milliseconds: 800),
-            gap: 8,
-            color: Colors.grey,
-            activeColor: MyColors.yellowColor,
-            tabBackgroundColor: const Color(0xff232023),
-            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h), // navigation bar padding
-
-            tabs:  const [
-          GButton(
-            icon: LineIcons.home,
-            text: 'Home',
-          ),
-          GButton(
-            icon: LineIcons.heart,
-            text: 'Likes',
-          ),
-          GButton(
-            icon: LineIcons.search,
-            text: 'Search',
-          ),
-          GButton(
-            icon: LineIcons.user,
-            text: 'Profile',
-          )
-        ]),
-      )
+    return BlocProvider(
+      create: (context) => NavCubit(),
+      child: BlocBuilder<NavCubit,NavState>(
+        builder: (context, state) {
+          NavCubit cubit=NavCubit.get(context);
+          return Scaffold(
+            body: cubit.listOfBoby[cubit.selectedTap],
+              bottomNavigationBar: GNavBar(cubit:cubit,));
+        },
+      ),
     );
   }
 }
+
+

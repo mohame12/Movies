@@ -9,7 +9,6 @@ class MyRoute
     SplashScreen.id: (context) => const SplashScreen(),
     HomeScreen.id: (context) =>const HomeScreen(),
 
-
   };
 
 }
