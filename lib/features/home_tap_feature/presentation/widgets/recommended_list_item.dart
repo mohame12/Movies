@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/networking/api_const.dart';
 import '../../../../core/themes/my_assets.dart';
 import '../../../../core/themes/my_colors.dart';
 import '../../../../core/themes/my_styles.dart';
@@ -8,9 +10,16 @@ import '../../../../core/widgets/watch_list_componant.dart';
 
 class RecommendedListItem extends StatelessWidget {
   const RecommendedListItem({
-    super.key,
+    super.key, required this.image, required this.title, required this.date, required this.rate,
   });
 
+  final String image;
+
+  final String title ;
+
+  final String date;
+
+  final dynamic  rate;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -28,11 +37,26 @@ class RecommendedListItem extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child:
-                Image(image: const AssetImage(MyAssets.test2Image),
+
+                CachedNetworkImage(
                   fit: BoxFit.cover,
                   width: 110.w,
-                  height: 200.w,
+                  height:200.h ,
+                  imageUrl: "${ApiConst.imageUrl}${image}",
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      SizedBox(
+                          width: 110.w,
+                          height:200.h ,
+                          child: Center(child: CircularProgressIndicator(color: MyColors.yellowColor,value: downloadProgress.progress))),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
+
+
+                // Image(image: const AssetImage(MyAssets.test2Image),
+                //   fit: BoxFit.cover,
+                //   width: 110.w,
+                //   height: 200.w,
+                // ),
               ),
               Container(
                 height:200.h ,
@@ -61,11 +85,11 @@ class RecommendedListItem extends StatelessWidget {
                       children: [
                         const Image(image: AssetImage(MyAssets.starIcon)),
                         SizedBox(width: 4.5.w,),
-                        Text('7.7',style: MyStyles.font10GreyPoppens,)
+                        Text("${rate}",style: MyStyles.font10GreyPoppens,)
                       ],
                     ),
-                    Text('Deadpool 2',style: MyStyles.font12WhitePoppens),
-                    Text('2018  R  1h 59m',style: MyStyles.font10GreyPoppens),
+                    Text(title,style: MyStyles.font12WhitePoppens),
+                    Text(date,style: MyStyles.font10GreyPoppens),
                     SizedBox(height: 10.h,)
                   ],
                 ),
