@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/themes/my_colors.dart';
+import 'package:movies_app/features/detailes_feature/presentation/pages/details_screen.dart';
 import 'package:movies_app/features/home_tap_feature/data/repositories/popular_repo/popular_repo_imp.dart';
 import 'package:movies_app/features/home_tap_feature/presentation/manager/popular_cubit/pubular_cubit.dart';
 import 'package:movies_app/features/home_tap_feature/presentation/manager/popular_cubit/pubular_state.dart';
@@ -29,9 +30,14 @@ class CarsoulSlider extends StatelessWidget {
              child: AspectRatio(
                aspectRatio: 3/9,
                child: CarouselSlider(
-               
                  items: state.movies.map((e){
-                   return CarSlider(image: e.backdropPath??"", imagePoster: e.posterPath??"", title: e.originalTitle??'', date: e.releaseDate??'',);
+                   return GestureDetector(
+                       onTap: ()
+                       {
+                         Navigator.pushNamed(context, DetailsScreen.id,arguments: e.id);
+                         print("${e.id}");
+                       },
+                       child: CarSlider(image: e.backdropPath??"", imagePoster: e.posterPath??"", title: e.originalTitle??'', date: e.releaseDate??''));
                  }).toList(),
                
                

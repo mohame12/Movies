@@ -35,4 +35,9 @@ class MyStyles
     fontSize: 10.sp,
     fontFamily: 'Poppins',
   );
+  static TextStyle font13GreyPoppens= TextStyle(
+    color: MyColors.detilMoviesColor,
+    fontSize: 13.sp,
+    fontFamily: 'Poppins',
+  );
 }

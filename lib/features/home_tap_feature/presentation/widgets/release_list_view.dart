@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/features/detailes_feature/presentation/pages/details_screen.dart';
 import 'package:movies_app/features/home_tap_feature/data/repositories/release_repo/release_repo_imp.dart';
 import 'package:movies_app/features/home_tap_feature/presentation/manager/release_cubit/release_state.dart';
 import 'package:movies_app/features/home_tap_feature/presentation/widgets/release_card.dart';
@@ -29,7 +30,12 @@ class ReleaseListView extends StatelessWidget {
                     ClipRRect(
                       clipBehavior: Clip.antiAlias,
                       borderRadius: BorderRadius.circular(4.w),
-                      child: CardList(image: state.movies[index].posterPath??"",),
+                      child: GestureDetector(
+                          onTap: ()
+                          {
+                            Navigator.pushNamed(context, DetailsScreen.id,arguments: state.movies[index].id);
+                          },
+                          child: CardList(image: state.movies[index].posterPath??"",)),
                     ),
                 separatorBuilder: (context, index) => SizedBox(width: 14.w,),
                 itemCount:state.movies.length);
