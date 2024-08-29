@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/core/networking/dio_helper.dart';
 import 'package:movies_app/core/routing/my_routes.dart';
 import 'package:movies_app/core/themes/my_themes.dart';
 import 'package:movies_app/features/splash_screen/presentation/pages/splash_screen.dart';
@@ -11,6 +12,7 @@ void main ()
 {
   Bloc.observer = MyBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
+  DioHelper.init();
   runApp(const MyApp());
 }
 

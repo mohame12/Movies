@@ -1,15 +1,19 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/themes/my_assets.dart';
+import 'package:movies_app/core/networking/api_const.dart';
 import '../../../../core/themes/my_colors.dart';
 import '../../../../core/themes/my_styles.dart';
 import '../../../../core/widgets/watch_list_componant.dart';
 
 class CarSlider extends StatelessWidget {
   const CarSlider({
-    super.key,
+    super.key, required this.image, required this.imagePoster, required this.title, required this.date,
   });
-
+  final String image;
+  final String imagePoster;
+  final String title;
+  final String date;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -31,12 +35,17 @@ class CarSlider extends StatelessWidget {
                   ),
                   child: Stack(
                     children: [
-                      Image(
-                        image: const AssetImage(MyAssets.testImage),
-                        height: 289.h,
-                        width: double.infinity,
+
+                      CachedNetworkImage(
+                        imageUrl: "${ApiConst.imageUrl}$image",
                         fit: BoxFit.cover,
+                        height: 289.h,
+                        width: 412.w,
+                        progressIndicatorBuilder: (context, url, downloadProgress) =>
+                            Center(child: CircularProgressIndicator(color: MyColors.yellowColor,value: downloadProgress.progress)),
+                        errorWidget: (context, url, error) => const Icon(Icons.error),
                       ),
+
                       Container(
                         height: 291.h,
                         width: double.infinity,
@@ -63,10 +72,17 @@ class CarSlider extends StatelessWidget {
                       children: [
                         ClipRRect(
                             borderRadius: BorderRadius.circular(5.w),
-                            child: const Stack(
+                            child:  Stack(
                               children: [
-                                Image(image: AssetImage(MyAssets.test2Image),fit: BoxFit.cover,width:129 ,height:199 ,),
-                                WatchListComponatnt()
+                                CachedNetworkImage(
+                                  imageUrl: "${ApiConst.imageUrl}$imagePoster",
+                                  fit: BoxFit.cover,
+                                width:129 ,height:199,
+                                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                                      Center(child: CircularProgressIndicator(color:MyColors.yellowColor,value: downloadProgress.progress)),
+                                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                                ),
+                                const WatchListComponatnt()
                               ],
                             )),
                         SizedBox(width: 14.w,),
@@ -74,9 +90,9 @@ class CarSlider extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text('Dora and the lost city of gold',style: MyStyles.font14WhiteInter,),
+                            Text(title,style: MyStyles.font14WhiteInter,),
                             SizedBox(height: 8.h,),
-                            Text('2019  PG-13  2h 7m',style:MyStyles.font10GreyInter,)
+                            Text(date,style:MyStyles.font10GreyInter,)
                           ],
                         ),
 
