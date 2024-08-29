@@ -7,6 +7,7 @@ import 'package:movies_app/features/home_tap_feature/presentation/manager/recomm
 import 'package:movies_app/features/home_tap_feature/presentation/widgets/recommended_list_item.dart';
 
 import '../../../../core/themes/my_colors.dart';
+import '../../../detailes_feature/presentation/pages/details_screen.dart';
 
 class RecommendedListView extends StatelessWidget {
   const RecommendedListView({
@@ -24,11 +25,18 @@ class RecommendedListView extends StatelessWidget {
             return ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => RecommendedListItem(
-                    image: state.movies[index].posterPath ?? "",
-                    title: state.movies[index].originalTitle ?? '',
-                    date: state.movies[index].releaseDate ?? "",
-                    rate: state.movies[index].voteAverage ?? ""),
+                itemBuilder: (context, index) =>
+                    GestureDetector(
+                  onTap: ()
+                  {
+                    Navigator.pushNamed(context, DetailsScreen.id,arguments: state.movies[index].id);
+                  },
+                  child: RecommendedListItem(
+                      image: state.movies[index].posterPath ?? "",
+                      title: state.movies[index].originalTitle ?? '',
+                      date: state.movies[index].releaseDate ?? "",
+                      rate: state.movies[index].voteAverage ?? ""),
+                ),
                 separatorBuilder: (context, index) => SizedBox(
                       width: 14.w,
                     ),

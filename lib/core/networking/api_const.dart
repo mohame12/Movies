@@ -14,4 +14,5 @@ class ApiConst {
   static const String releasesMovies = "upcoming";
   static const String recommndedMovies = "top_rated";
 
+
 }

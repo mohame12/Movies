@@ -8,4 +8,5 @@ class MyColors
   static const Color greyColor=Color(0xffB5B4B4);
   static const Color bookMarkOffColor=Color(0xff514F4F);
   static const Color recommendCardBackColor=Color(0xff343534);
+  static const Color detilMoviesColor=Color(0xffCBCBCB);
 }
