@@ -29,7 +29,7 @@ class CardList extends StatelessWidget {
                     , child:
                 CachedNetworkImage(
                   width:96.w ,
-                  height: 127.h,
+                  fit: BoxFit.cover,
                   imageUrl: "${ApiConst.imageUrl}$image",
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       Center(
