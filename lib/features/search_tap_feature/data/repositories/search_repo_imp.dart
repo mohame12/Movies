@@ -1,20 +1,23 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:movies_app/core/networking/failure.dart';
-import 'package:movies_app/features/detailes_feature/data/repositories/details_repo/details_repo.dart';
+import 'package:movies_app/features/home_tap_feature/data/models/popular_model.dart';
+import 'package:movies_app/features/search_tap_feature/data/repositories/search_repo.dart';
 import '../../../../../core/networking/api_const.dart';
 import '../../../../../core/networking/dio_helper.dart';
-import '../../models/details_model/DetailsModel.dart';
 
-class DetailsRepoImp implements DetailsRepo{
+class SearchRepoImp implements SearchRepo{
   @override
-  Future<Either<Failure, DetailsModel>> getDetailsMovies({required int id}) async {
+  Future<Either<Failure, List<Results>>> getSearchMovies({required String q}) async {
     try {
       Response response = await DioHelper.getData(
-          endPoint: "movie/$id", token: ApiConst.token);
+          endPoint: "search/movie?query=$q", token: ApiConst.token);
       Map<String, dynamic>data = response.data;
-      DetailsModel detailsModel=DetailsModel.fromJson(data);
-      return right(detailsModel);
+      List<Results> movies = [];
+      for (var item in data["results"]) {
+        movies.add(Results.fromJson(item));
+      }
+      return Right(movies);
     }catch(e) {
       if(e is DioException)
       {

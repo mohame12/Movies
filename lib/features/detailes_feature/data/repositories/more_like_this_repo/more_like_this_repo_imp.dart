@@ -11,7 +11,7 @@ class MoreLikeThisRepoImp implements MoreLikeThisRepo{
   Future<Either<Failure, List<Results>>> getMoreLikeThisMovies({required int id}) async {
     try {
       Response response = await DioHelper.getData(
-          endPoint: '$id/similar', token: ApiConst.token);
+          endPoint: 'movie/$id/similar', token: ApiConst.token);
       Map<String, dynamic>data = response.data;
       List<Results> movies = [];
       for (var item in data["results"]) {
