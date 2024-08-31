@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,12 +15,15 @@ import 'features/home_tap_feature/data/repositories/release_repo/release_repo_im
 import 'features/home_tap_feature/presentation/manager/popular_cubit/pubular_cubit.dart';
 import 'features/home_tap_feature/presentation/manager/recommended_cubit/recommended_cubit.dart';
 import 'features/home_tap_feature/presentation/manager/release_cubit/release_cubit.dart';
+import 'firebase_options.dart';
 
 
-void main ()
-{
-  Bloc.observer = MyBlocObserver();
+Future<void> main ()
+async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,);
+  Bloc.observer = MyBlocObserver();
   DioHelper.init();
   runApp(const MyApp());
 }

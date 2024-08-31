@@ -40,7 +40,7 @@ class CardList extends StatelessWidget {
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
                 ),
-                const WatchListComponatnt()
+                const WatchListComponatntOff()
               ],
             )
 

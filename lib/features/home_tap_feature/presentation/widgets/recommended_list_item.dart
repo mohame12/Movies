@@ -6,7 +6,6 @@ import '../../../../core/networking/api_const.dart';
 import '../../../../core/themes/my_assets.dart';
 import '../../../../core/themes/my_colors.dart';
 import '../../../../core/themes/my_styles.dart';
-import '../../../../core/widgets/watch_list_componant.dart';
 
 class RecommendedListItem extends StatelessWidget {
   const RecommendedListItem({
@@ -44,7 +43,7 @@ class RecommendedListItem extends StatelessWidget {
                   fit: BoxFit.cover,
                   width: w,
                   height:h ,
-                  imageUrl: "${ApiConst.imageUrl}${image}",
+                  imageUrl: "${ApiConst.imageUrl}$image",
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       SizedBox(
                           width: 110.w,
@@ -76,7 +75,7 @@ class RecommendedListItem extends StatelessWidget {
                   ),
                 ),
               ),
-              const WatchListComponatnt(),
+              // const WatchListComponatntOff(),
               Padding(
                 padding:  EdgeInsetsDirectional.only(start: 6.w),
                 child: Column(
@@ -87,7 +86,7 @@ class RecommendedListItem extends StatelessWidget {
                       children: [
                         const Image(image: AssetImage(MyAssets.starIcon)),
                         SizedBox(width: 4.5.w,),
-                        Text("${rate}",style: MyStyles.font10GreyPoppens,)
+                        Text("$rate",style: MyStyles.font10GreyPoppens,)
                       ],
                     ),
                     Text(title,style: MyStyles.font12WhitePoppens),

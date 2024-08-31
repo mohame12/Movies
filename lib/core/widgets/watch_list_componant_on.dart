@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../themes/my_assets.dart';
 import '../themes/my_colors.dart';
 
-class WatchListComponatntOff extends StatelessWidget {
-   const WatchListComponatntOff({
+class WatchListComponatntOn extends StatelessWidget {
+  const WatchListComponatntOn({
     super.key,
   });
 
@@ -17,8 +17,8 @@ class WatchListComponatntOff extends StatelessWidget {
       children: [
         ClipRRect(
             borderRadius: BorderRadiusDirectional.only(topStart: Radius.circular(6.w))
-            ,child: Image(image: AssetImage(MyAssets.bokkMarkOffIcon))),
-        Icon(Icons.add,color: MyColors.whiteColor,size: 16,),
+            ,child: const Image(image: AssetImage(MyAssets.bokkMarkOnIcon))),
+        const Icon(Icons.check,color: MyColors.whiteColor,size: 16,),
       ],
     );
   }
