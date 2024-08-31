@@ -40,7 +40,7 @@ class MoreLikeThisList extends StatelessWidget {
                         image: "${state.movies[index].posterPath}",
                         title: "${state.movies[index].title}",
                         date: "${state.movies[index].releaseDate}",
-                        rate: state.movies[index].voteAverage.toString().substring(0,3),
+                        rate: state.movies[index].voteAverage.toString().substring(0,3), w: 110.w, h: 200.h,
                                            ),
                      ),
                     separatorBuilder: (context, index) =>

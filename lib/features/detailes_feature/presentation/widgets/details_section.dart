@@ -193,6 +193,18 @@ class DetailsSection extends StatelessWidget {
                            Navigator.popUntil(context, ModalRoute.withName(HomeScreen.id));
                          },
                          child: const Icon(Icons.arrow_back,color: Colors.white,))),
+                Positioned(
+                  top:MediaQuery.of(context).size.height*0.31,
+                  left:MediaQuery.of(context).size.width*0.42,
+                  child: FloatingActionButton(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),
+                    ),
+                      backgroundColor: MyColors.greyColor.withOpacity(0.5),
+                      onPressed: () {
+
+                      },
+                  child:  const Icon(Icons.play_arrow,color: MyColors.yellowColor,)),
+                )
               ],
             );
           }else if(state is DetailsFailer)

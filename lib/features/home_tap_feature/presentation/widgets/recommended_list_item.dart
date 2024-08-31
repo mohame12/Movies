@@ -10,7 +10,7 @@ import '../../../../core/widgets/watch_list_componant.dart';
 
 class RecommendedListItem extends StatelessWidget {
   const RecommendedListItem({
-    super.key, required this.image, required this.title, required this.date, required this.rate,
+    super.key, required this.image, required this.title, required this.date, required this.rate,  this.w,  this.h,
   });
 
   final String image;
@@ -20,6 +20,8 @@ class RecommendedListItem extends StatelessWidget {
   final String date;
 
   final dynamic  rate;
+  final dynamic w;
+  final dynamic h;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -40,8 +42,8 @@ class RecommendedListItem extends StatelessWidget {
 
                 CachedNetworkImage(
                   fit: BoxFit.cover,
-                  width: 110.w,
-                  height:200.h ,
+                  width: w,
+                  height:h ,
                   imageUrl: "${ApiConst.imageUrl}${image}",
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       SizedBox(
@@ -59,8 +61,8 @@ class RecommendedListItem extends StatelessWidget {
                 // ),
               ),
               Container(
-                height:200.h ,
-                width: 110.w,
+                // height:200.h ,
+                // width: 110.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   gradient: const LinearGradient(
