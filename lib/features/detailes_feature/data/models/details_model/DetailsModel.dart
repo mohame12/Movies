@@ -23,7 +23,7 @@ class DetailsModel {
       this.status, 
       this.tagline, 
       this.title, 
-      this.video, 
+      this.video,
       this.voteAverage, 
       this.voteCount,});
 

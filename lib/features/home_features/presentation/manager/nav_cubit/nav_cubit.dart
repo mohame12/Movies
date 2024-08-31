@@ -7,7 +7,6 @@ import 'package:line_icons/line_icons.dart';
 import 'package:movies_app/features/browse_tap_feature/presentation/pages/browse_tap.dart';
 import 'package:movies_app/features/home_features/presentation/manager/nav_cubit/nav_state.dart';
 import 'package:movies_app/features/home_tap_feature/presentation/pages/home_tap.dart';
-import 'package:movies_app/features/profile_tap_feature/presentation/pages/profile_tap.dart';
 import 'package:movies_app/features/search_tap_feature/presentation/pages/search_tap.dart';
 import 'package:movies_app/features/watch_list_feature/presentation/pages/watch_list.dart';
 
@@ -33,10 +32,6 @@ class NavCubit extends Cubit<NavState> {
       icon: LineIcons.heart,
       text: 'Likes',
     ),
-    const GButton(
-      icon: LineIcons.user,
-      text: 'Profile',
-    )
   ];
 
   List<Widget>listOfBoby=[
@@ -44,7 +39,6 @@ class NavCubit extends Cubit<NavState> {
     const SearchTap(),
     const BrowseTap(),
     const WatchList(),
-    const ProfileTap(),
   ];
 
 

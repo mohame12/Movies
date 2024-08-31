@@ -82,7 +82,7 @@ class CarSlider extends StatelessWidget {
                                       Center(child: CircularProgressIndicator(color:MyColors.yellowColor,value: downloadProgress.progress)),
                                   errorWidget: (context, url, error) => const Icon(Icons.error),
                                 ),
-                                const WatchListComponatnt()
+                                const WatchListComponatntOff()
                               ],
                             )),
                         SizedBox(width: 14.w,),
