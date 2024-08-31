@@ -40,4 +40,18 @@ class MyStyles
     fontSize: 13.sp,
     fontFamily: 'Poppins',
   );
+
+  static TextStyle font22WhitePoppens= TextStyle(
+    color: MyColors.whiteColor,
+    fontSize: 22.sp,
+    fontFamily: 'Poppins',
+  );
+
+
+  static TextStyle font16WhitePoppens= TextStyle(
+    color: MyColors.whiteColor,
+    fontSize: 16.sp,
+    fontFamily: 'Poppins',
+  );
+
 }
