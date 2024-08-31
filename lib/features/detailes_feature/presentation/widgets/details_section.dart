@@ -3,15 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movies_app/features/browse_tap_feature/presentation/pages/movie_category.dart';
 import 'package:movies_app/features/detailes_feature/data/repositories/details_repo/details_repo_imp.dart';
 import 'package:movies_app/features/detailes_feature/presentation/manager/details_cubit/details_cubit.dart';
 import 'package:movies_app/features/detailes_feature/presentation/manager/details_cubit/details_state.dart';
+import 'package:movies_app/features/detailes_feature/presentation/pages/trailer_creen.dart';
 import 'package:movies_app/features/home_features/presentation/pages/home_screen.dart';
 import '../../../../core/networking/api_const.dart';
 import '../../../../core/themes/my_assets.dart';
 import '../../../../core/themes/my_colors.dart';
 import '../../../../core/themes/my_styles.dart';
 import '../../../../core/widgets/watch_list_componant.dart';
+import '../../../browse_tap_feature/data/models/navigation_model/navigation_model.dart';
 
 class DetailsSection extends StatelessWidget {
   const DetailsSection({
@@ -127,25 +130,28 @@ class DetailsSection extends StatelessWidget {
                                       scrollDirection: Axis.horizontal,
                                       physics: const BouncingScrollPhysics(),
                                       itemBuilder: (context, index) =>
-                                          Container(
+                                          GestureDetector(
+                                            onTap: () =>Navigator.pushNamed(context,MovieCategory.id,arguments:NavigationModel(name:state.model.genres![index].name??"" , id:state.model.genres![index].id??"")),
+                                            child: Container(
 
-                                            height: 30.h,
-                                            decoration: ShapeDecoration(
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                BorderRadius.circular(5.w),
-                                                side: const BorderSide(
-                                                    color: MyColors
-                                                        .bookMarkOffColor),
+                                              height: 30.h,
+                                              decoration: ShapeDecoration(
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                  BorderRadius.circular(5.w),
+                                                  side: const BorderSide(
+                                                      color: MyColors
+                                                          .bookMarkOffColor),
+                                                ),
                                               ),
-                                            ),
-                                            child: Padding(
-                                              padding:  EdgeInsetsDirectional.symmetric(horizontal: 8.w),
-                                              child: Center(
-                                                child: Text(
-                                                  "${state.model.genres![index].name}",
-                                                  style: MyStyles
-                                                      .font10GreyPoppens,
+                                              child: Padding(
+                                                padding:  EdgeInsetsDirectional.symmetric(horizontal: 8.w),
+                                                child: Center(
+                                                  child: Text(
+                                                    "${state.model.genres![index].name}",
+                                                    style: MyStyles
+                                                        .font10GreyPoppens,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -201,7 +207,7 @@ class DetailsSection extends StatelessWidget {
                     ),
                       backgroundColor: MyColors.greyColor.withOpacity(0.5),
                       onPressed: () {
-
+                      Navigator.pushNamed(context,TrailerScreen.routeName,arguments: id);
                       },
                   child:  const Icon(Icons.play_arrow,color: MyColors.yellowColor,)),
                 )

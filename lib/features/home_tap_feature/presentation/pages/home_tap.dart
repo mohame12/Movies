@@ -9,15 +9,16 @@ class HomeTap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-      const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CarsoulSlider(),
-          ReleaseSection(),
-          RecommendedSection()
-
-
-        ],
+      const SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CarsoulSlider(),
+            ReleaseSection(),
+            RecommendedSection(),
+          ],
+        ),
       );
   }
 }
